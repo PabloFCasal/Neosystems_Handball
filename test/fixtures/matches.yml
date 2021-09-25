@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  local_team: MyString
+  visiting_team: MyString
+  local_team_points: 1
+  visiting_team_points: 1
+  start: 2021-09-25 21:42:58
+  end: 2021-09-25 21:42:58
+
+two:
+  local_team: MyString
+  visiting_team: MyString
+  local_team_points: 1
+  visiting_team_points: 1
+  start: 2021-09-25 21:42:58
+  end: 2021-09-25 21:42:58
