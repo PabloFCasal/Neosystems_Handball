@@ -1,0 +1,10 @@
+<h1>NEW team</h1>
+
+<%= form_with(model: @team, local: true) do |f| %>
+
+  <%= f.label :Team_name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit "Add team" %>
+<% end %>
+
