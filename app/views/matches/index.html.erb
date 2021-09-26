@@ -1,9 +1,35 @@
 <h1>Index</h1>
 
-<%= @match.each do |m| %>
-  <ul>
-    <li>
-      <%= @match%>
-    </li>
-  </ul>
-<% end %>
+<table>
+  <tr>
+    <th>Local team</th>
+    <th>Visiting team</th>
+    <th>Score</th>
+    <th>Starts at</th>
+    <th>Ends</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @matches.each do |match| %>
+    <tr>
+      <td><%= match.local_team %></td>
+      <td><%= match.visiting_team %></td>
+      <td><p><%= pretty_score(match) %></p></td>
+      <td><%= pretty_date_time(match.started_at) %></td>
+      <td><%= pretty_date_time(match.ended_at) %></td>
+      <td>
+        <ul>
+          <li>
+            <%= link_to("Edit match", edit_match_path(match))%>
+          </li>
+          <li>
+            <%= link_to "Delete", match_path(match), class: "button", method: :delete, data: {confirm: 'Are you sure?'} %>
+          </li>
+        </ul>
+      </td>
+    </tr>
+   
+  <% end %>
+</table>
+
+<%= link_to "Add new match", new_match_path %>
