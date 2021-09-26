@@ -1,10 +1,11 @@
 <h1>Teams</h1>
 
-<% @team.each do |t| %>
+<% @teams.each do |team| %>
   <ul>
     <li>
-      <%= @team.name %>
+      <%= link_to(team.name, team_path(team)) %>
     </li>
+  
   </ul>
 <% end %>
 
