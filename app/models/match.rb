@@ -14,6 +14,11 @@ class Match < ApplicationRecord
   validates :local_team_points, inclusion: { in: 0..99 }
   validates :visiting_team_points, inclusion: { in: 0..99 }
 
+  scope :today_matches, lambda { 
+    where('started_at between ? and ? ', Time.now.beginning_of_day, Time.now.end_of_day ).
+    order('started_at')
+  }
+
   private
 
   def end_date_after_start_date

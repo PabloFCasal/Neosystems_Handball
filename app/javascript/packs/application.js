@@ -11,3 +11,10 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+if (window.location.pathname == '/screen') {
+  window.setTimeout(function(){
+    location.reload()
+  }, 60000)
+}
+
