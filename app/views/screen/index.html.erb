@@ -1,0 +1,22 @@
+<h1>Index</h1>
+
+<table>
+  <tr>
+    <th>Local team</th>
+    <th>Visiting team</th>
+    <th>Score</th>
+    <th>Starts at</th>
+    <th>Ends</th>
+  </tr>
+
+  <% @matches.each do |match| %>
+    <tr>
+      <td><%= match.local_team.try(:name) %></td>
+      <td><%= match.visiting_team.try(:name) %></td>
+      <td><p><%= pretty_score(match) %></p></td>
+      <td><%= pretty_date_time(match.started_at) %></td>
+      <td><%= pretty_date_time(match.ended_at) %></td>    
+    </tr>
+   
+  <% end %>
+</table>
