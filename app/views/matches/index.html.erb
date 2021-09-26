@@ -12,8 +12,8 @@
 
   <% @matches.each do |match| %>
     <tr>
-      <td><%= match.local_team %></td>
-      <td><%= match.visiting_team %></td>
+      <td><%= match.local_team.try(:name) %></td>
+      <td><%= match.visiting_team.try(:name) %></td>
       <td><p><%= pretty_score(match) %></p></td>
       <td><%= pretty_date_time(match.started_at) %></td>
       <td><%= pretty_date_time(match.ended_at) %></td>

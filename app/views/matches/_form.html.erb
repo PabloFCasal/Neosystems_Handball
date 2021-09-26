@@ -1,11 +1,19 @@
 <%= form_with(model: match) do |f| %>  
   <%= render "shared/errors", object: match %>
 
-  <%= f.label :local_team %>
-  <%= f.text_field :local_team %>
+  <%= f.label :local_team_id %>
+  <%= collection_select(:match, :local_team_id, Team.all,
+                  :id, :name) %>
 
-  <%= f.label :visiting_team %>
-  <%= f.text_field :visiting_team %>
+  <%= f.label :visiting_team_id %>
+  <%= collection_select(:match, :visiting_team_id, Team.all,
+                  :id, :name) %>
+
+  <%= f.label :local_team_points %>
+  <%= f.number_field :local_team_points, min:0 %>
+
+  <%= f.label :visiting_team_points %>
+  <%= f.number_field :visiting_team_points, min:0 %> 
 
   <%= f.label :started_at %>
   <%= f.datetime_field :started_at %>
