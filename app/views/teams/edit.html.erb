@@ -1,10 +1,5 @@
-<%= form_with(model: @team) do |f| %>  
- 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<h1> Edit team</h1>
 
-  <%= f.submit "Edit name" %> 
-
-<% end %>
+<%= render "form", team: @team %>
 
 
