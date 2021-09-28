@@ -1,24 +1,38 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Prueba técnica para Neosystems.
+Partiendo de las indicaciones inciales, se empleó una tabla adicional llamada Teams y un marcador con dos campos para los goles de los dos equipos. 
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+Tecnologías empleadas:
 
-* Configuration
+* Ruby 3.0.1
 
-* Database creation
+* Rails 6.1.4
 
-* Database initialization
+* Tailwind-rail 0.4.3
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+Antes de empezar, se debe ejecutar lo siguiente:
 
-* ...
+* $ bundle install
+
+* $ rails db:migrate
+
+* $ rails webpacker:install
+
+
+
+Algunas rutas para ver el funcionamiento de la aplicación:
+
+* $ localhost:3000
+
+* $ localhost:3000/teams
+
+* $ localhost:3000/teams/new
+
+* $ localhost:3000/matches
+
+* $ localhost:3000/matches/new
