@@ -1,22 +1,31 @@
-<h1>Index</h1>
 
-<table>
-  <tr>
-    <th>Local team</th>
-    <th>Visiting team</th>
-    <th>Score</th>
-    <th>Starts at</th>
-    <th>Ends</th>
-  </tr>
+<% if @matches.empty? %>
+  <%= render "shared/banner", warning_text: "Sorry guys, no games scheduled for today" %>
+<% else %>
 
-  <% @matches.each do |match| %>
-    <tr>
-      <td><%= match.local_team.try(:name) %></td>
-      <td><%= match.visiting_team.try(:name) %></td>
-      <td><p><%= pretty_score(match) %></p></td>
-      <td><%= pretty_date_time(match.started_at) %></td>
-      <td><%= pretty_date_time(match.ended_at) %></td>    
-    </tr>
-   
-  <% end %>
-</table>
+  <h2 class="mb-4 text-4xl font-black">Now playing</h2>
+  <table class="min-w-full table-auto">
+    <thead class="bg-gray-800 text-gray-300" >
+      <tr>
+        <th>Local team</th>
+        <th>Visiting team</th>
+        <th>Score</th>
+        <th>Starts at</th>
+        <th>Ends</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @matches.each do |match| %>
+        <tr class="border-4 border-gray-200">
+          <td><%= match.local_team.try(:name) %></td>
+          <td><%= match.visiting_team.try(:name) %></td>
+          <td><p><%= pretty_score(match) %></p></td>
+          <td><%= pretty_date_time(match.started_at) %></td>
+          <td><%= pretty_date_time(match.ended_at) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% end %>

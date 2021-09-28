@@ -1,35 +1,43 @@
-<h1>Index</h1>
 
-<table>
-  <tr>
-    <th>Local team</th>
-    <th>Visiting team</th>
-    <th>Score</th>
-    <th>Starts at</th>
-    <th>Ends</th>
-    <th>Actions</th>
-  </tr>
+<h2 class="mb-4 text-4xl font-black">Matches</h2>
 
-  <% @matches.each do |match| %>
-    <tr>
-      <td><%= match.local_team.try(:name) %></td>
-      <td><%= match.visiting_team.try(:name) %></td>
-      <td><p><%= pretty_score(match) %></p></td>
-      <td><%= pretty_date_time(match.started_at) %></td>
-      <td><%= pretty_date_time(match.ended_at) %></td>
-      <td>
-        <ul>
-          <li>
-            <%= link_to("Edit match", edit_match_path(match))%>
-          </li>
-          <li>
-            <%= link_to "Delete", match_path(match), class: "button", method: :delete, data: {confirm: 'Are you sure?'} %>
-          </li>
-        </ul>
-      </td>
-    </tr>
-   
-  <% end %>
-</table>
+  <% if @matches.empty? %>
+    <%= render "shared/banner", warning_text: "Please, add a new match" %>
+  <% else %>
 
-<%= link_to "Add new match", new_match_path %>
+    <table class="min-w-full table-auto">
+    <thead class="bg-gray-800 text-gray-300" >
+      <tr>
+        <th>Local team</th>
+        <th>Visiting team</th>
+        <th>Score</th>
+        <th>Starts at</th>
+        <th>Ends</th>
+        <th colspan="2">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @matches.each do |match| %>
+        <tr class="border-4 border-gray-200">
+          <td><%= match.local_team.try(:name) %></td>
+          <td><%= match.visiting_team.try(:name) %></td>
+          <td><p><%= pretty_score(match) %></p></td>
+          <td><%= pretty_date_time(match.started_at) %></td>
+          <td><%= pretty_date_time(match.ended_at) %></td>
+          <td>
+                <%= link_to("Edit match", edit_match_path(match))%>
+          </td>
+          <td>
+                <%= link_to "Delete", match_path(match), class: "button", method: :delete, data: {confirm: 'Are you sure?'} %>
+          </td>
+
+        </tr>
+    </tbody>
+      
+      <% end %>
+    </table>
+      <% end %>
+<br>
+  <%= link_to "Add new match", new_match_path, 
+    class:"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" %>

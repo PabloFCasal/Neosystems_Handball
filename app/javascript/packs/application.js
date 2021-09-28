@@ -18,6 +18,6 @@ ActiveStorage.start()
 if (window.location.pathname == '/screen') {
   window.setTimeout(function(){
     location.reload()
-  }, 60000)
+  }, 1000)
 }
 
