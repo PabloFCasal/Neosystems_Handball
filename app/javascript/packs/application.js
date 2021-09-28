@@ -7,6 +7,9 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import  "../layouts/application.css";
+
+require('stylesheets/application.scss')
 
 Rails.start()
 Turbolinks.start()
