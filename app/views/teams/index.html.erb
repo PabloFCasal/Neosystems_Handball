@@ -23,7 +23,9 @@
               <%= link_to("Edit", edit_team_path(team))%>
         </td>
         <td>
+          <% if team.can_be_destroyed? %>
               <%= link_to "Delete", team_path(team), class: "button", method: :delete, data: {confirm: 'Are you sure?'} %>
+          <% end %>
         </td>
       
       </tr>
